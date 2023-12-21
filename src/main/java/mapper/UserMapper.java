@@ -26,4 +26,7 @@ public interface UserMapper {
     public List<UserCustom> findUserList(UserQueryVo userQueryVo) throws Exception;
 
     public List<User> selectMulti2Object(QuerParam querParam) throws Exception;
+
+    //根据id查询用户信息，使用resultMap输出
+    public User findUserByIdResultMap(int id) throws Exception;
 }
