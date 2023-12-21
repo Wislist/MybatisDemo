@@ -1,6 +1,8 @@
 package mapper;
 
 import po.User;
+import po.UserCustom;
+import po.UserQueryVo;
 
 import java.util.List;
 
@@ -19,4 +21,6 @@ public interface UserMapper {
 
     //更新用户
     public void updateUser(User user)throws Exception;
+    //找一堆
+    public List<UserCustom> findUserList(UserQueryVo userQueryVo) throws Exception;
 }
