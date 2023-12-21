@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
 import org.junit.Test;
+import po.QuerParam;
 import po.User;
 import po.UserCustom;
 import po.UserQueryVo;
@@ -62,4 +63,19 @@ public class UserMapperTest {
 
         System.out.println(list);
     }
+    @Test
+    public void testSelectMultiObject() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+        QuerParam querParam = new QuerParam();
+        querParam.setParamName("张三");
+        querParam.setParamAge(28);
+        List<User> userList = userMapper.selectMulti2Object(querParam);
+        for (User user : userList) {
+            System.out.println("学生=" + user);
+        }
+        sqlSession.close();
+    }
+
 }

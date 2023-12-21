@@ -1,5 +1,6 @@
 package mapper;
 
+import po.QuerParam;
 import po.User;
 import po.UserCustom;
 import po.UserQueryVo;
@@ -23,4 +24,6 @@ public interface UserMapper {
     public void updateUser(User user)throws Exception;
     //找一堆
     public List<UserCustom> findUserList(UserQueryVo userQueryVo) throws Exception;
+
+    public List<User> selectMulti2Object(QuerParam querParam) throws Exception;
 }
